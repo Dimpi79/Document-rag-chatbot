@@ -10,9 +10,14 @@ import google.generativeai as genai
 from db_pinecone import upsert_vectors, query_vectors
 
 load_dotenv()
+try:
+    import streamlit as st
+    SECRETS = st.secrets
+except Exception:
+    SECRETS = {}
 
-COHERE_API_KEY = os.getenv("COHERE_API_KEY")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+COHERE_API_KEY = os.getenv("COHERE_API_KEY") or SECRETS.get("COHERE_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or SECRETS.get("GEMINI_API_KEY")
 
 if not COHERE_API_KEY:
     raise ValueError("Missing COHERE_API_KEY in .env")
