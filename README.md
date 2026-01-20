@@ -2,6 +2,9 @@
 
 A small RAG app where users upload a PDF (or paste text), the app chunks + embeds the content into a hosted vector DB (Pinecone), retrieves the most relevant chunks, reranks them, and answers queries using an LLM with inline citations.
 
+## Live Demo
+https://dimpi79-document-rag-chatbot-app-nukco1.streamlit.app/
+
 ## Demo Features
 - Upload PDF / paste text input
 - Chunking + metadata storage for citations
